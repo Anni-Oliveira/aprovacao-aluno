@@ -1,5 +1,3 @@
-import javax.servlet.http.HttpServlet;
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,21 +13,24 @@ import javax.servlet.http.HttpServlet;
         <div class="form-group">
           <label class="col-md-4 control-label" for="textinput">Nome:</label>
           <div class="col-md-6">
-            <input id="textinput" name="Nome" type="text" placeholder="0,00 m" class="form-control input-md" value=""> <span class="help-block">Coloque aqui a sua altura em metros. Ex.: 1,70 </span>
+            <input id="textinput" name="Nome" type="text" placeholder="" class="form-control input-md" value=""> 
+            <span class="help-block">Coloque aqui seu nome. Ex: Maria </span>
           </div>
         </div>
 
 	<div class="form-group">
           <label class="col-md-4 control-label" for="textinput">Frequência:</label>
           <div class="col-md-6">
-            <input id="textinput" name="Frequencia" type="text" placeholder="00 kg" class="form-control input-md" value=""> <span class="help-block">Coloque aqui o seu peso em kilos. Ex.: 63 </span>
+            <input id="textinput" name="Frequencia" type="number" placeholder="Coloque em porcentagem" class="form-control input-md" value=""> 
+            <span class="help-block">Coloque aqui a sua frequencia em porcentagem. Ex: 75 </span>
           </div>
         </div>
 
   	<div class="form-group">
           <label class="col-md-4 control-label" for="textinput">Nota Final:</label>
           <div class="col-md-6">
-            <input id="textinput" name="NotaF" type="text" placeholder="00 kg" class="form-control input-md" value=""> <span class="help-block">Coloque aqui o seu peso em kilos. Ex.: 63 </span>
+            <input id="textinput" name="NotaF" type="number" placeholder="Média final" class="form-control input-md" value=""> 
+            <span class="help-block">Coloque aqui sua nota final. Ex: 7 </span>
           </div>
         </div>
 	
@@ -42,5 +43,26 @@ import javax.servlet.http.HttpServlet;
         
       </fieldset>
     </form>
-    
-    <% %>
+   </div>
+   <b>${validaF}</b>
+   <b>${validaN}</b>
+   
+ </body>
+ <%
+ 	
+ 	if(validaF == 1){
+		out.print ("<div class='alert alert-success' role='alert'>Aprovado por frequencia!</div>");
+	}else{
+		out.print ("<div class='alert alert-danger' role='alert'>Reprovado por frequencia!!</div>");
+	}
+ 
+ 	if(validaN == 1){
+		out.print ("<div class='alert alert-success' role='alert'>Aprovado por nota!</div>");
+	}else{
+		out.print ("<div class='alert alert-danger' role='alert'>Reprovado por nota!!</div>");
+	}
+ 
+ 
+ %>
+
+ 
