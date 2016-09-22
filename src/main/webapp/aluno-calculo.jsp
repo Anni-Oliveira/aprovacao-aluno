@@ -37,7 +37,8 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for=""></label>
           <div class="col-md-4">
-            <button id="" name="" class="btn btn-primary">Calcular</button>
+            <button id="" name="calculo" class="btn btn-primary">Calcular</button>
+            <input hidden="true" name="calculo" id="status" value="${resultado}">
           </div>
         </div>
         
