@@ -2,20 +2,35 @@ package calculoNew;
 
 public class Model {
 	
-	  public static float validaFrequencia(float freq){
-		  if (freq >= 75){
-			  return 1;
-		  }else{ 
-			  return 0;
-		  }
-	  }
+	private float alunoFrequencia;
+	private float alunoNota;
+	private String alunoNome;
 	  
-	  public static float validaNotaFinal(float notaF){
-		  if (notaF > 7){
-			  return 1;
-		  }else{ 
-			  return 0;
-		  }
-	  }
+	Model(String alunoNome, float alunoFrequencia, float alunoNota){
+		this.alunoNome = alunoNome;
+		this.alunoFrequencia = alunoFrequencia;
+		this.alunoNota = alunoNota;
+	}
+	
+	public static String statusAlunoCurso(float alunoFrequencia, float alunoNota){
+		String resposta = "";
+		if(alunoFrequencia >= 75 && alunoNota >=6){
+			resposta = "Aprovado";
+			return resposta;
+		}else if(alunoFrequencia < 75 && alunoNota < 6){
+			resposta = "Reprovado por frequencia e nota";
+			return resposta;
+		}else if(alunoFrequencia < 75){
+			resposta = "Reprovado por frequencia";
+			return resposta;
+		}else if (alunoNota < 6){
+			resposta = "Reprovado por nota";
+			return resposta;
+		}else{
+			resposta = "Valores incompativeis ou incompletos";
+			return resposta;
+		}
+	}
+	  
 	  
 }

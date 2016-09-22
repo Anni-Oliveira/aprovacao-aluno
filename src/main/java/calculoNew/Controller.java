@@ -9,10 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(value = "/aluno-calculo")
+@WebServlet(value = "")
 
 public class Controller extends HttpServlet{
-		
+
 	/**
 	 * 
 	 */
@@ -23,24 +23,23 @@ public class Controller extends HttpServlet{
 	    
 	    //Preparação dos parâmetros.
 	    
-	    String frequenciaStr = req.getParameter("Frequencia");
-	    float frequencia = frequenciaStr == null || frequenciaStr.isEmpty() ? 0 : Float.parseFloat(frequenciaStr);
+		String frequenciaStr = req.getParameter("Frequencia");
+		float frequencia = frequenciaStr == null || frequenciaStr.isEmpty() ? 0 : Float.parseFloat(frequenciaStr);
 
-	    String notaFStr = req.getParameter("NotaF");
-	    float notaF = notaFStr == null || notaFStr.isEmpty()? 0 : Float.parseFloat(notaFStr);
+		String notaFStr = req.getParameter("NotaF");
+		float notaF = notaFStr == null || notaFStr.isEmpty()? 0 : Float.parseFloat(notaFStr);
 
-	    //Chamada ao Model.
-	    float resultadoF = Model.validaFrequencia(frequencia);
-	    float resultadoN = Model.validaNotaFinal(notaF);
+		//Chamada ao Model.
+		
+		String resultadoF = Model.statusAlunoCurso(frequencia, notaF);
 
-	    //Passagem de atributos para o JSP.
-	    req.setAttribute ("validaF", resultadoF);
-	    req.setAttribute ("validaN", resultadoN);
+		//Passagem de atributos para o JSP.
+		req.setAttribute ("resultado", resultadoF);
 
-	    //Chamando o JSP.
-	    String nextJsp = "/aluno-calculo.jsp";
-	    RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJsp);
-	    dispatcher.forward(req, resp);
-	  }
+		//Chamando o JSP.
+		String nextJsp = "/aluno-calculo.jsp";
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJsp);
+		dispatcher.forward(req, resp);
+  }
 	
 }

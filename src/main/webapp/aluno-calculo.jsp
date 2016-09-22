@@ -44,25 +44,9 @@
       </fieldset>
     </form>
    </div>
-   <b>${validaF}</b>
-   <b>${validaN}</b>
+   <b>${resultado}</b>
    
  </body>
- <%
- 	
- 	if(validaF == 1){
-		out.print ("<div class='alert alert-success' role='alert'>Aprovado por frequencia!</div>");
-	}else{
-		out.print ("<div class='alert alert-danger' role='alert'>Reprovado por frequencia!!</div>");
-	}
- 
- 	if(validaN == 1){
-		out.print ("<div class='alert alert-success' role='alert'>Aprovado por nota!</div>");
-	}else{
-		out.print ("<div class='alert alert-danger' role='alert'>Reprovado por nota!!</div>");
-	}
- 
- 
- %>
+ </html>
 
  
